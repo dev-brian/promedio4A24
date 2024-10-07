@@ -48,6 +48,14 @@ public class promedioGrupo {
         }
     }
 
+    public static double calcularPromedioGrupo() {
+        double suma = 0;
+        for (Alumno alumno : alumnos) {
+            suma += alumno.getPromedio();
+        }
+        return suma / alumnos.length;
+    }
+
     public static void main(String[] args) throws IOException {
         int n; // Cantidad de alumnos en el grupo
         // Declaracion de un arreglo de tipo TDA
@@ -62,12 +70,13 @@ public class promedioGrupo {
         n = Integer.parseInt(entrada); // Concersion de String a entero
         // Contruir el arreglo alumnos
         alumnos = new Alumno[n];
-        //Introducir información de cada alumno
+        // Introducir información de cada alumno
         leerAlumnos();
-        //Mostrar información del Alumno sin hacerlo apropiadamente
-        //System.out.println(alumnos);
+        // Mostrar información del Alumno sin hacerlo apropiadamente
+        // System.out.println(alumnos);
         imprimirAlumnos();
-
+        // Obtener el promedio
+        promedio = calcularPromedioGrupo();
         // calificaciones = new double[n]; // Creando el arreglo de calificaciones
 
         // Recuperando las calificaciones de cada alumno
@@ -81,17 +90,8 @@ public class promedioGrupo {
          */
         // promedio = suma / n;
         // mostrar las calificaiones de cada alumno
-        /*
-         * System.out.
-         * println("----------------------- /n Las calificaciones de cada alumno son: "
-         * );
-         * for (double calificacion : calificaciones) {
-         * System.out.println(calificacion);
-         * }
-         * 
-         * System.out.println("----------------------- /n El promedio del grupo es: " +
-         * promedio);
-         */
+
+        System.out.println("----------------------- /n El promedio del grupo es: " + promedio);
     }
 
 }
